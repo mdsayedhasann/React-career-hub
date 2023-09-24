@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { CiLocationOn } from "react-icons/Ci";
 import { AiOutlineDollar } from "react-icons/Ai";
-
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
@@ -24,15 +25,18 @@ const Job = ({ job }) => {
   return (
     <div className="text-left my-5 py-3 ">
       <div className="card card-compact bordered border-red-950">
-       
         <div className="card-body">
+          <div className="flex flex-row">
+            <figure className="">
+              <img
+                className="w-24 h-10"
+                src={logo}
+                alt={company_name}
+                title={company_name}
+              />
+            </figure>
+          </div>
 
-        <div className="flex flex-row">
-        <figure className="">
-          <img className="w-24 h-10" src={logo} alt={company_name} title={company_name} />
-        </figure>
-        </div>
-          
           <h2 className="card-title">{job_title}</h2>
           <h3 className="text-xl">{company_name}</h3>
           <div className="flex">
@@ -48,15 +52,19 @@ const Job = ({ job }) => {
 
           <div className="flex justify-around">
             <p className="text-xl py-2 px-3 text-[#757575] mr-2 flex items-center">
-                <CiLocationOn className="mr-3 -ml-4"></CiLocationOn> {location}
+              <CiLocationOn className="mr-3 -ml-4"></CiLocationOn> {location}
             </p>
             <p className="text-xl py-2 px-3 text-[#757575] flex items-center">
-             <AiOutlineDollar className="mr-3"></AiOutlineDollar> {salary}
+              <AiOutlineDollar className="mr-3"></AiOutlineDollar> {salary}
             </p>
           </div>
 
           <div className="card-actions">
-            <button className="btn btn-primary bg-[#9873FF] text-white">View Details</button>
+            <Link job={id} to={`/job/${id}`}>
+              <button className="btn btn-primary bg-[#9873FF] text-white">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>
