@@ -14,7 +14,7 @@ const JobDetails = () => {
   console.log(id, job);
 
   const notify = () =>
-  saveJobApplication(id);
+  saveJobApplication(idInt);
     toast.success("Job Added", {
       position: "bottom-right",
       autoClose: 1500,
